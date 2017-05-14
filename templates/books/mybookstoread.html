@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+
+
+<link href="/static/css/sb-admin.css" rel="stylesheet">
+<link href="/static/css/movie.css" rel="stylesheet">
+<link href="/static/css/news.css" rel="stylesheet">
+
+
+<!-- banner-slider -->
+<script type="text/javascript" src="/static/js/jquery-2.1.4.min.js"></script>
+<link href="/static/css/owl.carousel.css" rel="stylesheet" type="text/css" media="all">
+<script src="/static/js/owl.carousel.js"></script>
+
+
+
+
+
+<link href="/static/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,700italic,700,400italic,300italic,300' rel='stylesheet' type='text/css'>
+<!-- start-smoth-scrolling -->
+<script type="text/javascript" src="/static/js/move-top.js"></script>
+<script type="text/javascript" src="/static/js/easing.js"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <style type="text/css">
+
+
+    div.absolute {
+    position: absolute;
+    top: 60px;
+           right:500px;
+    width: 700px;
+    height: 100px;
+
+}
+
+
+
+
+
+</style>
+
+</head>
+
+
+
+<div id="wrapper" >
+
+
+        {% include 'layout.html' %}
+
+    <div id="page-wrapper" style="background-color: white;">
+            <div class="container-fluid">
+                <div class="container">
+
+
+
+
+                    <div class="faq">
+			<div class="container">
+
+					<ol class="breadcrumb">
+					  <li><a href="index.html">Home</a></li>
+					  <li class="active">My Books</li>
+					</ol>
+
+				<div class="agileinfo-news-top-grids">
+					<div class="col-md-15 wthree-top-news-left">
+						<div class="wthree-news-left">
+							<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+								<ul id="myTab" class="nav nav-tabs" role="tablist">
+
+									<li role="presentation"><a href="{{ url_for('book_app.mybooks') }}" >Read Books</a></li>
+                                    <li role="presentation" class="active"><a href="#home1" id="home1-tab" role="tab" data-toggle="tab" aria-controls="home1" aria-expanded="true">To Read</a></li>
+                                </ul>
+                                <br>
+								<div id="myTabContent" class="tab-content">
+									<div role="tabpanel" class="tab-pane fade in active" id="home1" aria-labelledby="home1-tab">
+                                            {% block body %}
+
+                                                {#<i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+                                                <span class="sr-only">Loading...</span>#}
+
+                                                {% set count = 0%}
+										    {% for row in result2 %}
+                                                {% if count==0 %}
+                                                <div class="wthree-news-top-left">
+                                                {% endif %}
+											<div class="col-md-6 w3-agileits-news-left">
+												<div class="col-sm-5 wthree-news-img">
+													<a href="news-single.html"><img src="{{ row.imageurl }}" alt="" /></a>
+												</div>
+												<div class="col-sm-7 wthree-news-info">
+													<h5><a href="news-single.html">{{ row.title }}</a></h5>
+													{{ row.year }}
+													<ul>
+
+												        <li>Author: {{ row.author }}</li>
+                                                        <br>
+                                                        <li>ISBN: {{ row.isbn }}</li>
+
+                                                        <br>
+
+                                                        <li>Status</li>
+                                                         <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
+                                                      <i class="glyphicon glyphicon-cog"></i> <span class="caret"></span>
+                                                    </button>
+                                                    <ul class="dropdown-menu" role="menu">
+                                                    <li  onclick="myFunction('{{ row.isbn }}','Read')"><i class="fa fa-eye" aria-hidden="true"></i> Read </li>
+
+                                                                                                       </ul>
+
+
+                                                    <p class="help-block" id="{{ row.isbn}}"></p>
+
+
+
+
+                                                       													</ul>
+												</div>
+												<div class="clearfix"> </div>
+											</div>
+                                                {% set count=count + 1 %}
+                                                    {% if count==2%}
+                                                        <div class="clearfix"> </div>
+                                                         </div>
+                                                        {% set count=0 %}
+                                                        <br>
+                                                    {% endif %}
+
+                                            {% endfor %}
+
+
+
+										</div>
+                                                </div>
+
+
+                                                {#<i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+                                                <span class="sr-only">Loading...</span>#}
+                                            {% endblock %}
+
+
+										</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									</div>
+
+
+
+
+
+								</div>
+
+
+
+
+
+
+
+
+							</div>
+						</div>
+					</div>
+
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </div>
+
+
+
+                </div>
+
+
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+   <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="/static/js/jquery.js"></script>
+
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/static/js/bootstrap.min.js"></script>
+
+       <script>
+
+
+
+
+
+
+            function myFunction(isbn,status)
+        {
+
+
+{#            document.getElementById(imdbId).innerHTML =stars ;#}
+
+            document.getElementById(isbn).innerHTML =" You have updated the Status" ;
+
+
+
+                       var request = $.ajax({
+    url: "/bookstatus",
+    type: "POST",
+    contentType: "application/json",
+    data: JSON.stringify({
+      isbn: isbn,
+      status: status
+    }),
+    dataType: "json",
+  })
+   .done( function (request) {
+ })
+        }
+
+
+        setTimeout(function() {
+            $('#displayinfo').fadeOut('fast');
+            }, 3000);
+
+
+
+
+
+    </script>
+
+
+
+</html>
+
+
+

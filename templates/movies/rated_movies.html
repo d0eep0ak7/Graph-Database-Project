@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Movies</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+
+
+<link href="/static/css/bootstrap.min.css" rel="stylesheet">
+
+
+<link href="/static/css/sb-admin.css" rel="stylesheet">
+
+<link href="/static/css/movie.css" rel="stylesheet">
+<link href="/static/css/genres.css" rel="stylesheet">
+
+
+<link href="/static/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+
+
+<script type="text/javascript" src="/static/js/jquery-2.1.4.min.js"></script>
+
+<link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,700italic,700,400italic,300italic,300' rel='stylesheet' type='text/css'>
+
+<script type="text/javascript" src="/static/js/move-top.js"></script>
+<script type="text/javascript" src="/static/js/easing.js"></script>
+
+
+
+
+    <script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+</script>
+
+
+
+<link href="/static/css/owl.carousel.css" rel="stylesheet" type="text/css" media="all">
+<script src="/static/js/owl.carousel.js"></script>
+<script>
+	$(document).ready(function() {
+		$("#owl-demo").owlCarousel({
+
+		  autoPlay: 3000, //Set AutoPlay to 3 seconds
+
+		  items : 5,
+		  itemsDesktop : [640,5],
+		  itemsDesktopSmall : [414,4]
+
+		});
+
+	});
+
+
+
+
+
+
+$('#submit').click(function()
+{
+    $.ajax({
+        url: tip.php,
+        type:'POST',
+        data:
+        {
+            tip_email: $('#tip_email'),
+            ad_id: $('#ad_id')
+        },
+        success: function(msg)
+        {
+
+            alert('Email Sent');
+        }
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+    <style type="text/css">
+
+div.absolute {
+             position: absolute;
+             top: 500px;
+             right: 500px;
+             width: 500px;
+             height: 100px;
+         }
+
+
+
+
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+<body>
+
+
+
+
+
+
+
+
+
+<div id="wrapper" >
+
+
+{% include 'layout.html' %}
+
+<div id="page-wrapper" style="background-color: white;">
+    <div class="container-fluid">
+
+        <div class="container">
+
+
+
+
+
+                <nav class="navbar navbar-inverse"  style="background-color:#FF8D1B; border: none">
+                            <div class="container-fluid">
+
+
+
+                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav">
+                            <li><a href="{{ url_for('moviemain')}}" style=" color: #fff; text-transform: uppercase;" >Home</a></li>
+
+                           <li class="dropdown">
+								<a href="#" class="dropdown-toggle" style=" color: #fff; text-transform: uppercase;" data-toggle="dropdown">Genres <b class="caret"></b></a>
+								<ul class="dropdown-menu multi-column columns-3">
+									<li>
+									<div class="col-sm-4">
+										<ul class="multi-column-dropdown">
+											<li><a href="{{ url_for('movie_app.genres', genre_name='Action',skip=0,page=1) }}">Action</a></li>
+											<li><a href="{{ url_for('movie_app.genres', genre_name='Comedy',skip=0,page=1) }}">Comedy</a></li>
+											<li><a href="{{ url_for('movie_app.genres', genre_name='Drama',skip=0,page=1) }}">Drama</a></li>
+                                            <li><a href="{{ url_for('movie_app.genres', genre_name='Fantasy',skip=0,page=1) }}">Fantasy</a></li>
+                                            <li><a href="{{ url_for('movie_app.genres', genre_name='History',skip=0,page=1) }}">History</a></li>
+                                            <li><a href="{{ url_for('movie_app.genres', genre_name='Others',skip=0,page=1) }}">Others</a></li>
+
+                                            <li><a href="{{ url_for('movie_app.genres', genre_name='Sci-Fiction',skip=0,page=1) }}">Sci-Fiction</a></li>
+
+											<li><a href="{{ url_for('movie_app.genres', genre_name='War',skip=0,page=1) }}">War</a></li>
+										</ul>
+									</div>
+									<div class="col-sm-4">
+										<ul class="multi-column-dropdown">
+											<li><a href="{{ url_for('movie_app.genres', genre_name='Adventure',skip=0,page=1) }}">Adventure</a></li>
+											<li><a href="{{ url_for('movie_app.genres', genre_name='Crime',skip=0,page=1) }}">Crime</a></li>
+											<li><a href="{{ url_for('movie_app.genres', genre_name='Documentary',skip=0,page=1) }},skip=0">Documentary</a></li>
+                                            <li><a href="{{ url_for('movie_app.genres', genre_name='Family',skip=0,page=1) }}">Family</a></li>
+
+                                            <li><a href="{{ url_for('movie_app.genres', genre_name='Musical',skip=0,page=1) }}">Musical</a></li>
+                                            <li><a href="{{ url_for('movie_app.genres', genre_name='Romance',skip=0,page=1) }}">Romance</a></li>
+
+                                            <li><a href="{{ url_for('movie_app.genres', genre_name='Suspense',skip=0,page=1) }}">Suspense</a></li>
+
+										</ul>
+									</div>
+									<div class="col-sm-4">
+										<ul class="multi-column-dropdown">
+											<li><a href="{{ url_for('movie_app.genres', genre_name='Animation',skip=0,page=1) }}">Animation</a></li>
+											 <li><a href="{{ url_for('movie_app.genres', genre_name='Disaster',skip=0,page=1) }}">Disaster</a></li>
+
+                                            <li><a href="{{ url_for('movie_app.genres', genre_name='Erotic',skip=0,page=1) }}">Erotic</a></li>
+											<li><a href="{{ url_for('movie_app.genres', genre_name='Horror',skip=0,page=1) }}">Horror</a></li>
+                                            <li><a href="{{ url_for('movie_app.genres', genre_name='Mystery',skip=0,page=1) }}">Mystery</a></li>
+
+											<li><a href="{{ url_for('movie_app.genres', genre_name='Sports',skip=0,page=1) }}">Sports</a></li>
+                                            <li><a href="{{ url_for('movie_app.genres', genre_name='Thriller',skip=0,page=1) }}">Thriller</a></li>
+										</ul>
+									</div>
+
+
+
+									</li>
+								</ul>
+							</li>
+
+
+
+
+
+
+
+                            <li><a href="{{ url_for('movie_app.ratedmovies',skip=0,page=1) }}" style=" color: #fff; text-transform: uppercase;">Rated Movies</a></li>
+
+
+
+
+
+
+                            </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                            </div>
+                            </div>
+                </nav>
+
+        </div>
+            <div class="general-agileits-w3l">
+                <div class="w3l-medile-movies-grids">
+
+                      {% block body %}
+
+                  <div class="movie-browse-agile">
+					     <!--/browse-agile-w3ls -->
+                    <div class="browse-agile-w3ls general-w3ls">
+								<div class="tittle-head">
+
+
+									<h4 class="latest-text">Rated Movies </h4>
+                                     {% if pagenumbers<1 %}
+                                         <h5 class="latest-text">Page 1 of 1 </h5>
+                                        {% else %}
+                                                <h5 class="latest-text">Page {{ page}} of {{ pagenumbers }} </h5>
+                                    {% endif %}
+									<div class="container">
+										<div class="agileits-single-top">
+											<ol class="breadcrumb">
+											  <li><a href="index.html">Home</a></li>
+											  <li class="active">Rated Movies</li>
+											</ol>
+										</div>
+									</div>
+								</div>
+             <div class="container">
+
+
+
+                                    {% set count = 0%}
+                                 {% for row in results %}
+
+
+                                            {% if  count%6==0 %}
+                                                     <div class="browse-inner">
+                                            {% endif %}
+                                     {%set count = count + 1 %}
+                         <div class="col-md-2 w3l-movie-gride-agile">
+					 <a href="single.html" class="hvr-shutter-out-horizontal"><img src="{{ row.imageUrl }}" title="album-name" height="268px" width="182px"  alt=" " />
+
+					</a>
+						  <div class="mid-1">
+										<div class="w3l-movie-text">
+											<h6><a href="single.html">{{ row.title }}</a></h6>
+										</div>
+							<div class="mid-1">
+
+								{#<p>2016</p>#}
+
+									<ul class="w3l-ratings">
+											 <li onclick="myFunction('{{ row.imdbId }}',1)"><i class="fa fa-star" aria-hidden="true"></i></li>
+											 <li onclick="myFunction('{{ row.imdbId }}',2)"><i class="fa fa-star" aria-hidden="true"></i></li>
+                                             <li onclick="myFunction('{{ row.imdbId }}',3)"><i class="fa fa-star" aria-hidden="true"></i></li>
+                                             <li onclick="myFunction('{{ row.imdbId }}',4)"><i class="fa fa-star" aria-hidden="true"></i></li>
+                                             <li onclick="myFunction('{{ row.imdbId }}',5)"><i class="fa fa-star" aria-hidden="true"></i></li>
+
+									</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+											<div class="clearfix"></div>
+										</div>
+
+									</div>
+                                    <div class="ribben two" >
+										<p id="{{ row.imdbId }}">{{ row.stars}}</p>
+									</div>
+									</div>
+
+
+                                    {% if  count%6==0 %}
+
+								<div class="clearfix"> </div>
+								</div>
+                                     {% endif %}
+                                  {% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    </div>
+                                  </div>
+                                  </div>
+                                  </div>
+
+
+
+						</div>
+				<!--//browse-agile-w3ls -->
+						<div class="blog-pagenat-wthree">
+							<ul>
+
+                                {% if pagenumbers >1  %}
+                                        {%set count = pagenumbers + 1 %}
+                                        {% for x in range(1,count)  %}
+
+								            <li><a href="{{ url_for('movie_app.ratedmovies',skip=x*102-102,page=x) }}">{{ x }}</a></li>
+								        {% endfor %}
+
+                                {% endif %}
+
+							</ul>
+						</div>
+					</div>
+
+
+{% endblock %}
+
+
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/static/js/jquery.js"></script>
+
+
+
+<script src="/static/js/bootstrap.min.js"></script>
+
+	<script type="text/javascript">
+
+
+
+        function myFunction(imdbId,stars)
+        {
+
+
+            document.getElementById(imdbId).innerHTML =stars ;
+
+
+
+                       var request = $.ajax({
+    url: "/ratemovies",
+    type: "POST",
+    contentType: "application/json",
+    data: JSON.stringify({
+      imdbId: imdbId,
+      stars: stars
+    }),
+    dataType: "json",
+  })
+   .done( function (request) {
+ })
+        }
+
+
+
+
+
+
+		$(document).ready(function() {
+			/*
+				var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear'
+				};
+			*/
+
+			$().UItoTop({ easingType: 'easeOutQuart' });
+
+			});
+	</script>
+<!-- //here ends scrolling icon -->
+</body>
+</html>

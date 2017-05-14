@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- Custom CSS -->
+    <link href="/static/css/sb-admin.css" rel="stylesheet">
+
+
+    <link href="/static/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <style type="text/css">
+
+
+
+.image {
+   position: relative;
+    overflow: hidden;
+}
+
+h2 {
+   position: absolute;
+   top: 100px;
+   left: 100px;
+   width: 100%;
+}
+
+
+h2 span {
+    color: white;
+    font: bold 24px/45px Helvetica, Sans-Serif;
+    letter-spacing: -1px;
+    background: rgb(0, 0, 0); /* fallback color */
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+
+}
+
+
+    div.absolute {
+    position: absolute;
+    top: 60px;
+           right:500px;
+    width: 500px;
+    height: 100px;
+
+}
+</style>
+
+</head>
+
+
+
+<div id="wrapper" >
+
+
+        {% include 'layout.html' %}
+
+
+
+
+
+
+
+
+                <div class="image">
+
+      <img src="/static/images/background.jpg" width="1275" height="auto">
+
+      <h2><span>An Efficient Recommender System Based on Graph Database</span></h2>
+
+</div>
+
+
+</div>
+
+   <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="/static/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/static/js/bootstrap.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="/static/js/plugins/morris/raphael.min.js"></script>
+    <script src="/static/js/plugins/morris/morris.min.js"></script>
+    <script src="/static/js/plugins/morris/morris-data.js"></script>
+
+
+
+    <script>
+
+
+
+        setTimeout(function() {
+            $('#displayinfo').fadeOut('fast');
+            }, 3000);
+
+
+    </script>
+
+
+
+</html>
+
+
+

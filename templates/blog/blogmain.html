@@ -1,0 +1,278 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+     <title>Blog Main Page</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/static/css/sb-admin.css" rel="stylesheet">
+    <link href="/static/css/timeline.css" rel="stylesheet">
+    <!-- Morris Charts CSS -->
+    <link href="/static/css/plugins/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="/static/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+
+
+<style>
+
+
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 15px;
+}
+.btn-circle.btn-lg {
+  width: 50px;
+  height: 50px;
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 25px;
+}
+.btn-circle.btn-xl {
+  width: 70px;
+  height: 70px;
+  padding: 10px 16px;
+  font-size: 24px;
+  line-height: 1.33;
+  border-radius: 35px;
+}
+
+
+         div.absolute {
+             position: absolute;
+             top: 60px;
+             right: 500px;
+             width: 500px;
+             height: 100px;
+         }
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+         {% include 'layout.html' %}
+
+
+        <!-- Page Content -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                 <div class="row">
+                                                <div class="col-lg-12">
+                                                    <h1 class="page-header">
+                                                        Blog <small>Posts</small>
+                                                    </h1>
+                                                    <ol class="breadcrumb">
+                                                        <li class="active">
+                                                            <i class="fa fa-pencil-square-o"></i> Share New Post
+                                                        </li>
+                                                    </ol>
+                                                </div>
+                                            </div>
+
+
+
+
+
+
+                <form action="{{ url_for('blog_app.add_post') }}" method="post" role="form">
+                                                <div class="row">
+
+                                                            <div class="col-lg-4">
+
+
+
+                                                                    <div class="form-group">
+                                                                        <label>Title</label>
+                                                                        <input type="text" class="form-control" name="title" required >
+                                                                        <p class="help-block">Example: Happy New Yr</p>
+                                                                    </div>
+                                                            </div>
+                                     <div class="col-lg-4">
+
+
+
+                                                                    <div class="form-group">
+                                                                        <label>Tags</label>
+                                                                        <input type="text" class="form-control" name="tags" required>
+                                                                        <p class="help-block">Example: #Hello #2017 </p>
+                                                                        </div>
+
+                                                             </div>
+
+
+
+
+         <div class="col-lg-8">
+             <div class="form-group">
+            <label>Post Category</label>
+
+         <div  data-toggle="buttons">
+          <label class="btn btn-success btn-circle">       <input type="radio" name="about" id="about" value="Happy" required ><i class="fa fa-smile-o fa-lg" ></i></label>
+          <label class="btn btn-primary btn-circle"><input type="radio" name="about" id="about" value="Sad"><i class="fa fa-frown-o fa-lg"></i></label>
+          <label class="btn btn-danger btn-circle">       <input type="radio" name="about" id="about" value="Love"><i class="fa fa-heart fa-lg "></i></label>
+           <label class="btn btn-info btn-circle">       <input type="radio" name="about" id="about" value="Info"><i class="fa fa-info-circle fa-lg"></i></label>
+        </div>
+
+                   <p class="help-block" id="result"></p>
+
+             </div>
+         </div>
+
+
+
+
+
+
+                                                            <div class="col-lg-8">
+
+                                                                <div class="form-group">
+                                                                    <label>Text area</label>
+                                                                    <textarea name="text" class="form-control" cols="10" rows="5" required></textarea>
+                                                                </div>
+                                                            </div>
+
+
+
+
+
+
+
+
+                                                </div>
+
+                                                <button type="submit" class="btn btn-success btn-lg">Post</button>
+
+                                                </form>
+
+
+
+
+                                                <br>
+
+
+
+
+
+
+
+
+
+
+                <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-clock-o fa-fw"></i> Todays Recent Posts
+                        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            {% include "blog/display_posts.html"%}
+
+
+
+
+
+</div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+</body>
+
+   <script src="/static/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/static/js/bootstrap.min.js"></script>
+
+
+
+<script>
+    {
+ $('input[type=radio]').change( function() {
+  var radioValue = $("input[name='about']:checked").val()
+    result.innerHTML =" You selected :"+radioValue ;
+});
+}
+</script>
+
+
+</html>

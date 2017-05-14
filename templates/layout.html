@@ -1,0 +1,213 @@
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+
+    <style>
+
+
+    div.absolute {
+    position: absolute;
+    top: 60px;
+           right:500px;
+    width: 500px;
+    height: 100px;
+
+}
+
+        #page-wrapper {
+
+height: auto;
+            background-color: white;
+margin: 0px auto;
+              min-height: 100%;
+
+
+}
+
+body, html {
+height: auto;
+    min-height: 100%;
+    background-color: white;
+}
+
+
+
+        #wrapper {
+    height: auto;
+margin: 0px auto;
+            background-color: white;
+            min-height: 100%;
+
+}
+
+
+
+
+
+
+
+
+    </style>
+
+</head>
+
+
+
+
+
+
+
+
+<div class="absolute">
+
+
+                {% for message in get_flashed_messages() %}
+		  <div id="displayinfo" class="alert alert-danger alert-dismissible" role="alert">
+
+			{{message}}
+		  </div>
+		{% endfor %}
+  {% block body %}{% endblock %}
+                     </div>
+
+
+
+
+
+
+
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{ url_for('main')}}">AccuRecon</a>
+            </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+
+
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{session.username}} <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+
+
+                        <li>
+                            <a href="{{ url_for('logout')}}"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li>
+                        <a href="{{ url_for('main')}}"><i class="fa fa-fw fa-dashboard"></i> <b>Dashboard</b></a>
+                    </li>
+
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#blog"><i class="fa fa-pencil-square-o"></i> <b>Blog</b>  <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="blog" class="collapse">
+                            <li>
+                                <a href="{{ url_for('blogmain')}}"> <b>Write Posts</b></a>
+                            </li>
+
+                             <li>
+                                <a href="{{ url_for('blog_app.profile',username=session.username) }}"> <B>View Profile</B></a>
+                            </li>
+
+                            <li>
+                                <a href="{{ url_for('similar_users') }}"><b>Similar Bloggers</b></a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+
+
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#movies"><i class="fa fa-film"></i> <b>Movies</b>  <i class="caret"></i></a>
+                        <ul id="movies" class="collapse">
+                            <li>
+                                <a href="{{ url_for('moviemain')}}"> <b>Rate Movies</b></a>
+                            </li>
+
+                             <li>
+                                <a href="{{ url_for('trymovies')}}"> <B>Try Movies</B></a>
+                            </li>
+
+                            <li>
+                                <a href="{{ url_for('movie_app.suggestmovies') }}"><b>Suggest Movies</b></a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#books"><i class="fa fa-book"></i> <b>Books</b>  <i class="caret"></i></a>
+                        <ul id="books" class="collapse">
+                           <li>
+                        <a href="{{ url_for('book_app.bookmain', search_id='A') }}"> <b>Books Library</b></a>
+                    </li>
+
+
+
+                              <li>
+                        <a href="{{ url_for('book_app.mybooks') }}"> <b>My Books</b></a>
+                    </li>
+
+
+                           <li>
+                        <a href="{{ url_for('book_app.bookrecommendations') }}"> <b>Book Recommendations</b></a>
+                    </li>
+
+
+                        </ul>
+                    </li>
+
+
+
+
+
+
+
+
+
+
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+
+
+    <script>
+
+
+
+        setTimeout(function() {
+            $('#displayinfo').fadeOut('fast');
+            }, 3000);
+
+
+
+
+
+    </script>
+
+
+</html>

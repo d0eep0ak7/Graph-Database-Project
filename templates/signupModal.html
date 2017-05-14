@@ -1,0 +1,148 @@
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content col-md-12">
+        <div class="modal-header-primary">
+          <button type="button" class="close" data-dismiss="modal">×</button>
+
+        </div>
+        <div class="modal-body">
+        <div class="row">
+
+
+            <article role="login">
+{#              <h3 class="text-center"><i class="fa fa-lock"></i> Create User Account</h3>#}
+
+             <form role="form" action="{{ url_for('forms_app.signup')}}" method="post" name="signupform">
+			 <!-- Text input-->
+
+
+<div class="form-group">
+<label class="col-md-5 control-label">User Name</label>
+<div class="col-md-7">
+<input type="text" name="username" placeholder="Enter Full Name" class="form-control" required >
+</div>
+</div>
+                 <br>
+                 <br>
+                 <div class="form-group">
+<label class="col-md-5 control-label">Password</label>
+<div class="col-md-7">
+<input type="password" name="password" placeholder="Password"  class="form-control" required />
+<span class="text-danger"></span>
+</div>
+</div>
+
+  <br><br>    <!-- Text input-->
+<div class="form-group">
+<label class="col-md-5 control-label">Confirm Password </label>
+<div class="col-md-7">
+<input type="password" name="cpassword" placeholder="Confirm Password"  class="form-control" required/>
+<span class="text-danger"></span>
+</div>
+</div>
+
+
+
+<br><br>
+
+
+
+
+  <!-- Text input-->
+<div class="form-group">
+<label class="col-md-5 control-label">Email</label>
+<div class="col-md-7">
+<input type="email" name="email" placeholder="Email" class="form-control" required/>
+<span class="text-danger"></span>
+</div>
+</div>
+<br>
+<br>
+
+
+
+
+                 <div class="form-group">
+      <label class="col-md-5 control-label">Age</label>
+      <div class="col-md-7">
+      <select class="form-control" name="age" required>
+        <option>18</option>
+        <option>19</option>
+        <option>20</option>
+        <option>21</option> <option>22</option><option>23</option><option>24</option><option>25</option><option>26</option>
+          <option>27</option><option>28</option><option>29</option><option>30</option><option>31</option><option>32</option>
+          <option>33</option><option>34</option><option>35</option><option>36</option><option>37</option><option>38</option>
+          <option>39</option><option>40</option><option>41</option><option>42</option><option>43</option><option>44</option>
+          <option>45</option><option>46</option><option>47</option><option>48</option><option>49</option><option>50</option>
+      </select>
+
+
+      </div>
+                 </div>
+<br>
+<br>
+                 <div class="form-group">
+                      <label class="col-md-5 control-label">Gender</label>
+                     <div class="col-md-7">
+<label class="radio-inline"><input type="radio" name="gender" value="Male"checked="true"> Male</label>
+<label class="radio-inline"><input type="radio" name="gender" value="Female">Female</label>
+
+                     </div>
+                 </div>
+
+      <!-- Text input-->
+
+
+	<br><br>
+<div class="form-group">
+<label class="col-md-5 control-label">Mobile</label>
+<div class="col-md-7">
+<input type="text" class="form-control" id="mobile"  name ="mobile"placeholder="" required />
+</div>
+</div>
+    <br> <br>
+
+ <div class="form-group">
+ <label class="col-md-5 control-label">Country</label>
+ <div class="col-md-7">
+<input type="text" class="form-control" id="country"  name ="country"placeholder="" required />
+</div>
+</div>
+     <br> <br>
+
+
+
+
+
+ <div class="form-group">
+ <label class="col-md-5 control-label">State</label>
+ <div class="col-md-7">
+<input type="text" class="form-control" id="state"  name ="state"placeholder="" required />
+</div>
+</div>
+     <br> <br>
+
+
+		    <div class="form-group">
+						<input type="submit" name="signup" value="Sign Up" class="btn btn-primary" />
+					</div>
+
+              </form>
+
+
+
+            </article>
+
+
+
+        </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>

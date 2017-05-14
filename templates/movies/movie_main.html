@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+
+
+<link href="/static/css/sb-admin.css" rel="stylesheet">
+
+<link href="/static/css/movie.css" rel="stylesheet">
+<link href="/static/css/jquery.slidey.min.css" rel="stylesheet">
+
+<!-- banner-slider -->
+<script type="text/javascript" src="/static/js/jquery-2.1.4.min.js"></script>
+<link href="/static/css/owl.carousel.css" rel="stylesheet" type="text/css" media="all">
+<script src="/static/js/owl.carousel.js"></script>
+
+
+
+
+
+<link href="/static/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,700italic,700,400italic,300italic,300' rel='stylesheet' type='text/css'>
+<!-- start-smoth-scrolling -->
+<script type="text/javascript" src="/static/js/move-top.js"></script>
+<script type="text/javascript" src="/static/js/easing.js"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <style type="text/css">
+
+
+    div.absolute {
+    position: absolute;
+    top: 60px;
+           right:500px;
+    width: 700px;
+    height: 100px;
+
+}
+
+
+
+
+
+</style>
+
+</head>
+
+
+
+<div id="wrapper" >
+
+
+        {% include 'layout.html' %}
+
+    <div id="page-wrapper" style="background-color: white;">
+            <div class="container-fluid">
+                <div class="container">
+
+
+
+                                          {#   <form class="form" role="form" method="post" action="{{ url_for('movie_app.movie')}}">
+										<div class="form-group">
+											 <label class="sr-only" for="inputUsername">IMBDBID</label>
+											 <input type="text" class="form-control" name="imdbid" placeholder="Movie ID" required>
+										</div>
+
+                                                 <input type="submit" value="ENter">
+
+                                             </form>
+#}
+
+
+
+{#                                                {% block body %}#}
+{##}
+{##}
+{##}
+{#                                             {% for row in movieresults %}#}
+{##}
+{#                                             {{ row.movie }}#}
+{#                                           <img src=" {{ row.imageUrl }}" class="lazy"  >#}
+{#                                             {% endfor %}#}
+{#                                         {% endblock %}#}
+
+
+
+                    <nav class="navbar navbar-inverse"  style="background-color:#FF8D1B; border: none">
+  <div class="container-fluid">
+
+
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+                                <li><a href="{{ url_for('moviemain')}}" style=" color: #fff; text-transform: uppercase; " >Home</a></li>
+
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" style=" color: #fff; text-transform: uppercase;" data-toggle="dropdown">Genres <b class="caret"></b></a>
+								<ul class="dropdown-menu multi-column columns-3">
+									<li>
+									<div class="col-sm-4">
+										<ul class="multi-column-dropdown">
+											<li><a href="{{ url_for('movie_app.genres', genre_name='Action',skip=0,page=1) }}">Action</a></li>
+											<li><a href="{{ url_for('movie_app.genres', genre_name='Comedy',skip=0,page=1) }}">Comedy</a></li>
+											<li><a href="{{ url_for('movie_app.genres', genre_name='Drama',skip=0,page=1) }}">Drama</a></li>
+                                            <li><a href="{{ url_for('movie_app.genres', genre_name='Fantasy',skip=0,page=1) }}">Fantasy</a></li>
+                                            <li><a href="{{ url_for('movie_app.genres', genre_name='History',skip=0,page=1) }}">History</a></li>
+                                            <li><a href="{{ url_for('movie_app.genres', genre_name='Others',skip=0,page=1) }}">Others</a></li>
+
+                                            <li><a href="{{ url_for('movie_app.genres', genre_name='Sci-Fiction',skip=0,page=1) }}">Sci-Fiction</a></li>
+
+											<li><a href="{{ url_for('movie_app.genres', genre_name='War',skip=0,page=1) }}">War</a></li>
+										</ul>
+									</div>
+									<div class="col-sm-4">
+										<ul class="multi-column-dropdown">
+											<li><a href="{{ url_for('movie_app.genres', genre_name='Adventure',skip=0,page=1) }}">Adventure</a></li>
+											<li><a href="{{ url_for('movie_app.genres', genre_name='Crime',skip=0,page=1) }}">Crime</a></li>
+											<li><a href="{{ url_for('movie_app.genres', genre_name='Documentary',skip=0,page=1) }},skip=0">Documentary</a></li>
+                                            <li><a href="{{ url_for('movie_app.genres', genre_name='Family',skip=0,page=1) }}">Family</a></li>
+
+                                            <li><a href="{{ url_for('movie_app.genres', genre_name='Musical',skip=0,page=1) }}">Musical</a></li>
+                                            <li><a href="{{ url_for('movie_app.genres', genre_name='Romance',skip=0,page=1) }}">Romance</a></li>
+
+                                            <li><a href="{{ url_for('movie_app.genres', genre_name='Suspense',skip=0,page=1) }}">Suspense</a></li>
+
+										</ul>
+									</div>
+									<div class="col-sm-4">
+										<ul class="multi-column-dropdown">
+											<li><a href="{{ url_for('movie_app.genres', genre_name='Animation',skip=0,page=1) }}">Animation</a></li>
+											 <li><a href="{{ url_for('movie_app.genres', genre_name='Disaster',skip=0,page=1) }}">Disaster</a></li>
+
+                                            <li><a href="{{ url_for('movie_app.genres', genre_name='Erotic',skip=0,page=1) }}">Erotic</a></li>
+											<li><a href="{{ url_for('movie_app.genres', genre_name='Horror',skip=0,page=1) }}">Horror</a></li>
+                                            <li><a href="{{ url_for('movie_app.genres', genre_name='Mystery',skip=0,page=1) }}">Mystery</a></li>
+
+											<li><a href="{{ url_for('movie_app.genres', genre_name='Sports',skip=0,page=1) }}">Sports</a></li>
+                                            <li><a href="{{ url_for('movie_app.genres', genre_name='Thriller',skip=0,page=1) }}">Thriller</a></li>
+										</ul>
+									</div>
+
+
+
+									</li>
+								</ul>
+							</li>
+
+
+
+
+
+
+            <li><a href="{{ url_for('movie_app.ratedmovies' ,skip=0,page=1) }}" style=" color: #fff; text-transform: uppercase;">Rated Movies</a></li>
+
+
+
+
+
+
+      </ul>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+                    </nav>
+
+
+   <div id="slidey" >
+		<ul>
+			<li><img src="/static/images/5.jpg" alt=" "><p class='title'>Tarzan</p><p class='description'> Tarzan, having acclimated to life in London, is called back to his former home in the jungle to investigate the activities at a mining encampment.</p></li>
+			<li><img src="/static/images/2.jpg" alt=" "><p class='title'>Maximum Ride</p><p class='description'>Six children, genetically cross-bred with avian DNA, take flight around the country to discover their origins. Along the way, their mysterious past is ...</p></li>
+			<li><img src="/static/images/3.jpg" alt=" "><p class='title'>Independence</p><p class='description'>The fate of humanity hangs in the balance as the U.S. President and citizens decide if these aliens are to be trusted ...or feared.</p></li>
+			<li><img src="/static/images/4.jpg" alt=" "><p class='title'>Central Intelligence</p><p class='description'>Bullied as a teen for being overweight, Bob Stone (Dwayne Johnson) shows up to his high school reunion looking fit and muscular. Claiming to be on a top-secret ...</p></li>
+			<li><img src="/static/images/6.jpg" alt=" "><p class='title'>Ice Age</p><p class='description'>In the film's epilogue, Scrat keeps struggling to control the alien ship until it crashes on Mars, destroying all life on the planet.</p></li>
+			<li><img src="/static/images/7.jpg" alt=" "><p class='title'>X - Man</p><p class='description'>In 1977, paranormal investigators Ed (Patrick Wilson) and Lorraine Warren come out of a self-imposed sabbatical to travel to Enfield, a borough in north ...</p></li>
+		</ul>
+    </div>
+
+
+
+    <script src="/static/js/jquery.slidey.js"></script>
+    <script src="/static/js/jquery.dotdotdot.min.js"></script>
+	   <script type="text/javascript">
+			$("#slidey").slidey({
+				interval: 8000,
+				listCount: 5,
+				autoplay: false,
+				showList: true
+			});
+			$(".slidey-list-description").dotdotdot();
+		</script>
+
+
+
+
+  </div><!-- /.container-fluid -->
+
+                                         </div>
+            </div>
+    </div>
+</div>
+</div>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+   <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="/static/js/jquery.js"></script>
+
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/static/js/bootstrap.min.js"></script>
+
+       <script>
+
+
+
+        setTimeout(function() {
+            $('#displayinfo').fadeOut('fast');
+            }, 3000);
+
+
+
+
+
+    </script>
+
+
+
+</html>
+
+
+

@@ -1,0 +1,117 @@
+
+
+
+<head>
+<link href="/static/css/timeline.css" rel="stylesheet">
+
+
+
+
+    <style>
+
+        p.text {
+
+    word-wrap: break-word;
+}
+
+
+    </style>
+</head>
+
+
+
+
+
+        <ul class="timeline">
+        {% set count = 0%}
+        {% for row in posts %}
+                {%set count = count + 1 %}
+            {% if  count%2==0 %}
+
+               <li class="timeline-inverted">
+
+
+            {% else %}
+                <li>
+                {% endif %}
+             {% if  row.post.about=="Happy"%}
+
+                <div class="timeline-badge success"><i class="fa fa-smile-o fa-lg"></i></div>
+
+            {% elif row.post.about=="Sad" %}
+                <div class="timeline-badge primary"><i class="fa fa-frown-o fa-lg" aria-hidden="true"></i></div>
+
+                  {% elif row.post.about=="Love" %}
+                <div class="timeline-badge danger"><i class="fa fa-heart fa-lg " aria-hidden="true"></i></div>
+
+
+             {% elif row.post.about=="Info" %}
+                <div class="timeline-badge info"><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i></div>
+
+
+
+                {% endif %}
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">{{ row.post.title }}</h4>
+                <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> {{getpostime(row.post.timestamp) }}  </small></p>
+            </div>
+
+
+
+        <div class="timeline-body">
+              <p class="text">
+
+    	                <b>{{ row.post.text }}</b></p>
+            <br>
+
+             Tags: <i>{{ ", ".join(row.tags) }}</i>
+
+        </div>
+              <hr>
+
+              <div class="btn-group">
+
+                   <a href="{{ url_for('blog_app.likepost', post_id=row.post.id) }}" class="btn btn-info btn-sm">
+                    <span class="glyphicon glyphicon-thumbs-up"></span> Like
+                  </a>
+
+
+                <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
+                  <i class="glyphicon glyphicon-cog"></i> <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+                </ul>
+              </div>
+
+          </div>
+        </li>
+
+
+
+
+
+  {% else %}
+            <li>
+                  <div class="timeline-badge success"><i class="fa fa-meh-o fa-lg"></i></div>
+
+                    <div class="timeline-panel">
+                    <div class="timeline-heading">
+                      <h4 class="timeline-title">There aren't any posts yet!</h4>
+                    </div>
+
+                  </div>
+                </li>
+
+  {% endfor %}
+         </ul>
+
+
+
+
+
+

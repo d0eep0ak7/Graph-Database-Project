@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+<link href="/static/css/bootstrap.min.css" rel="stylesheet">
+
+
+<link href="/static/css/sb-admin.css" rel="stylesheet">
+<link href="/static/css/movie.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/static/list-css/table-style.css" />
+<link rel="stylesheet" href="/static/list-css/list.css" type="text/css" />
+<link rel="stylesheet" type="text/css" href="/static/list-css/basictable.css" />
+<!-- banner-slider -->
+<script type="text/javascript" src="/static/js/jquery-2.1.4.min.js"></script>
+<link href="/static/css/owl.carousel.css" rel="stylesheet" type="text/css" media="all">
+<script src="/static/js/owl.carousel.js"></script>
+<script src="/static/js/suggestmovies.js"></script>
+<script src="/static/list-js/suggestmovies.js"></script>
+
+
+<link href="/static/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,700italic,700,400italic,300italic,300' rel='stylesheet' type='text/css'>
+<!-- start-smoth-scrolling -->
+<script type="text/javascript" src="/static/js/move-top.js"></script>
+<script type="text/javascript" src="/static/js/easing.js"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+
+
+     $(document).ready(function() {
+      $('#table').basictable();
+
+      $('#table-breakpoint').basictable({
+        breakpoint: 768
+      });
+	   $('#table-breakpoint1').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint2').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint3').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint4').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint5').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint6').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint7').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint8').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint9').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint10').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint11').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint12').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint13').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint14').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint15').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint16').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint17').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint18').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint19').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint20').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint21').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint22').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint23').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint24').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint25').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint26').basictable({
+        breakpoint: 768
+      });
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <style type="text/css">
+
+
+    div.absolute {
+    position: absolute;
+    top: 60px;
+           right:500px;
+    width: 700px;
+    height: 100px;
+
+}
+
+
+
+
+
+</style>
+
+</head>
+
+
+
+<div id="wrapper" >
+
+
+        {% include 'layout.html' %}
+
+    <div id="page-wrapper" style="background-color: white;">
+            <div class="container-fluid">
+                <div class="container">
+
+
+                <div class="faq">
+		<h4 class="latest-text w3_faq_latest_text w3_latest_text">Books Recommendations</h4>
+			<div class="container">
+				<div class="agileits-news-top">
+					<ol class="breadcrumb">
+					  <li><a href="index.html">Home</a></li>
+					  <li class="active">List</li>
+					</ol>
+				</div>
+
+                <div class="agile-news-table">
+									<div class="w3ls-news-result">
+										<h4>Recommended  Results</h4>
+									</div>
+									<table id="table-breakpoint">
+										<thead>
+										  <tr>
+											<th>No.</th>
+											<th>Book Name</th>
+											<th>Author</th>
+                                            <th>Year</th>
+											<th>Publisher</th>
+                                            <th>ISBN</th>
+                                            <th>Status</th>
+
+
+										  </tr>
+										</thead>
+										<tbody>
+										  {% set count = 0%}
+                                        {% for row in results %}
+                                                 {% set count = count + 1%}
+										  <tr>
+											<td>{{ count }}</td>
+
+											<td class="w3-list-img"><a href="single.html"><img src="{{ row.imageurl }}" alt="" /> <span>{{ row.title }}</span></a></td>
+											<td>{{ row.author }}</td>
+											<td>{{ row.year }}</td>
+											<td>{{ row.publisher }}</td>
+											<td>{{ row.isbn }}</td>
+                                            <td><div class="btn-group">
+                                                <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
+                                                      <i class="glyphicon glyphicon-cog"></i> <span class="caret"></span>
+                                                    </button>
+                                                    <ul class="dropdown-menu" role="menu">
+                                                    <li  onclick="myFunction('{{ row.isbn }}','Read')"><i class="fa fa-eye" aria-hidden="true"></i> Read </li>
+                                                    <li  onclick="myFunction('{{ row.isbn }}','Will Read')"><i class="fa fa-bookmark" aria-hidden="true"></i> Will Read </li>
+
+                                                    </ul>
+                                                  </div>
+                                                </td>
+										  </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                           </div>
+                        </div>
+
+
+
+
+                        </div>
+                </div>
+
+
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+</html>
+
+
+
+
+
+
+
+
+
+
+   <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="/static/js/jquery.js"></script>
+
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/static/js/bootstrap.min.js"></script>
+
+       <script>
+
+        function myFunction(isbn,status)
+        {
+
+
+{#            document.getElementById(imdbId).innerHTML =stars ;#}
+
+
+
+                       var request = $.ajax({
+    url: "/bookstatus",
+    type: "POST",
+    contentType: "application/json",
+    data: JSON.stringify({
+      isbn: isbn,
+      status: status
+    }),
+    dataType: "json",
+  })
+   .done( function (request) {
+ })
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        setTimeout(function() {
+            $('#displayinfo').fadeOut('fast');
+            }, 3000);
+
+
+
+
+
+    </script>
+
+
+
+</html>
+
+
+
